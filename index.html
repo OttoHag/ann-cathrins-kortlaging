@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ann-Cathrin's kortlaging</title>
+  <meta name="description" content="Håndlagde kort for store og små anledninger. Se galleri og send bestilling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+  <header class="hero" id="hjem">
+    <nav class="top-nav container">
+      <a class="brand" href="#hjem">Ann-Cathrin's kortlaging</a>
+      <div class="nav-links">
+        <a href="#galleri">Galleri</a>
+        <a href="#bestilling">Bestill</a>
+      </div>
+    </nav>
+
+    <section class="hero-content container">
+      <p class="badge">Håndlagde kort med personlighet</p>
+      <h1>Kort som gjør dagen litt mer spesiell</h1>
+      <p class="lead">Her kan du se et utvalg av kort jeg har laget, og sende forespørsel om kort på bestilling til bursdag, bryllup, konfirmasjon og mer.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#galleri">Se galleri</a>
+        <a class="button ghost" href="#bestilling">Lag bestilling</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="galleri" class="container section">
+      <div class="section-header">
+        <h2>Galleri</h2>
+        <p>Eksempler på tidligere kort. Nye designs kommer fortløpende.</p>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Filtrer kort">
+        <button class="filter-btn active" data-filter="alle">Alle</button>
+        <button class="filter-btn" data-filter="bursdag">Bursdag</button>
+        <button class="filter-btn" data-filter="bryllup">Bryllup</button>
+        <button class="filter-btn" data-filter="dåp">Dåp</button>
+        <button class="filter-btn" data-filter="jul">Jul</button>
+      </div>
+
+      <div class="card-grid" id="cardGrid">
+        <article class="kortkort" data-kategori="bursdag">
+          <div class="kortbilde farge-1"></div>
+          <h3>Blomsterdrøm</h3>
+          <p>Bursdagskort med lag-på-lag og blomsterdetaljer.</p>
+        </article>
+
+        <article class="kortkort" data-kategori="bryllup">
+          <div class="kortbilde farge-2"></div>
+          <h3>Hvite toner</h3>
+          <p>Elegant bryllupskort med gullpreg og satinband.</p>
+        </article>
+
+        <article class="kortkort" data-kategori="dåp">
+          <div class="kortbilde farge-3"></div>
+          <h3>Stjerneskinn</h3>
+          <p>Dåpskort i lyseblått med handstemplet motiv.</p>
+        </article>
+
+        <article class="kortkort" data-kategori="jul">
+          <img class="kortbilde" src="imgs/jul.png" alt="Nordisk Julekort" />
+          <h3>Nordisk jul</h3>
+          <p>Julekort med granbar, tekstur og varme fargetoner.</p>
+        </article>
+
+        <article class="kortkort" data-kategori="bursdag">
+          <div class="kortbilde farge-5"></div>
+          <h3>Konfetti</h3>
+          <p>Lekent kort med sterke farger til store bursdager.</p>
+        </article>
+
+        <article class="kortkort" data-kategori="bryllup">
+          <div class="kortbilde farge-6"></div>
+          <h3>Romantisk kveld</h3>
+          <p>Personlig bryllupskort med plass til eget navn og dato.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="bestilling" class="container section">
+      <div class="section-header">
+        <h2>Bestill kort</h2>
+        <p>Send inn ønsker, så tar jeg kontakt med pris og leveringstid.</p>
+      </div>
+
+      <form id="bestillingsSkjema" class="order-form" action="https://formsubmit.co/ann-c-la@online.no" method="POST" novalidate>
+        <input type="hidden" name="_captcha" value="false" />
+        <label for="navn">Navn</label>
+        <input id="navn" name="navn" type="text" required />
+
+        <label for="epost">E-post</label>
+        <input id="epost" name="epost" type="email" required />
+
+        <label for="kategori">Type kort</label>
+        <select id="kategori" name="kategori" required>
+          <option value="">Velg type</option>
+          <option value="Bursdag">Bursdag</option>
+          <option value="Bryllup">Bryllup</option>
+          <option value="Konfirmasjon">Konfirmasjon</option>
+          <option value="Dåp">Dåp</option>
+          <option value="Jul">Jul</option>
+          <option value="Annet">Annet</option>
+        </select>
+
+        <label for="beskrivelse">Beskrivelse</label>
+        <textarea id="beskrivelse" name="beskrivelse" rows="5" placeholder="Farger, tekst, anledning, antall kort, ønsket dato..." required></textarea>
+
+        <button class="button primary" type="submit">Send forespørsel</button>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Ann-Cathrin's kortlaging</p>
+    <p>Håndlaget med omtanke</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
