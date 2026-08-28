@@ -17,7 +17,7 @@
     <nav class="top-nav container">
       <a class="brand" href="#hjem">Ann-Cathrin's kortlaging</a>
       <div class="nav-links">
-        <a href="#galleri">Galleri</a>
+        <a class="gallery-link" href="#galleri">Galleri</a>
         <a href="#bestilling">Bestill</a>
       </div>
     </nav>
@@ -27,7 +27,7 @@
       <h1>Kort som gjør dagen litt mer spesiell</h1>
       <p class="lead">Her kan du se et utvalg av kort jeg har laget, og sende forespørsel om kort på bestilling til bursdag, bryllup, konfirmasjon og mer.</p>
       <div class="hero-actions">
-        <a class="button primary" href="#galleri">Se galleri</a>
+        <a class="button primary gallery-link" href="#galleri">Se galleri</a>
         <a class="button ghost" href="#bestilling">Lag bestilling</a>
       </div>
     </section>
@@ -40,65 +40,76 @@
         <p>Eksempler på tidligere kort. Nye designs kommer fortløpende.</p>
       </div>
 
-      <div class="filters" role="tablist" aria-label="Filtrer kort">
-        <button class="filter-btn active" data-filter="alle">Alle</button>
-        <button class="filter-btn" data-filter="bursdag">Bursdag</button>
-        <button class="filter-btn" data-filter="bryllup">Bryllup</button>
-        <button class="filter-btn" data-filter="dåp">Dåp</button>
-        <button class="filter-btn" data-filter="konfirmasjon">Konfirmasjon</button>
-        <button class="filter-btn" data-filter="jul">Jul</button>
-        <button class="filter-btn" data-filter="Valentine">Valentine</button>
-      </div>
-
       <div class="card-grid" id="cardGrid">
-        <article class="kortkort" data-kategori="bursdag">
-          <div class="kortbilde farge-1"></div>
-          <h3>Blomsterdrøm</h3>
-          <p>Bursdagskort med lag-på-lag og blomsterdetaljer.</p>
-        </article>
+        <a class="card-link" href="#galleri" data-filter="bursdag">
+          <article class="kortkort" data-kategori="bursdag">
+            <div class="kortbilde farge-1"></div>
+            <h3>Blomsterdrøm</h3>
+            <p>Bursdagskort med lag-på-lag og blomsterdetaljer.</p>
+          </article>
+        </a>
 
-        <article class="kortkort" data-kategori="bryllup">
-          <img class="kortbilde" src="imgs/Bryllup_blomster.jpg" alt="Bryllupskort med blomster" />
-          <h3>Hvite toner</h3>
-          <p>Elegant bryllupskort med Stor blomst og roser.</p>
-        </article>
+        <a class="card-link" href="#galleri" data-filter="bryllup">
+          <article class="kortkort" data-kategori="bryllup">
+            <img class="kortbilde kortbilde--liten" src="imgs/sma-bilder/Brylup_blomst_liten.jpg" data-large="imgs/store-bilder/Bryllup_blomster.jpg" alt="Bryllupskort med blomster" />
+            <h3>Bryllups kort</h3>
+            <p>Elegante bryllupskort.</p>
+          </article>
+        </a>
 
-        <article class="kortkort" data-kategori="dåp">
-          <div class="kortbilde farge-3"></div>
-          <h3>Stjerneskinn</h3>
-          <p>Dåpskort i lyseblått med handstemplet motiv.</p>
-        </article>
+        <a class="card-link" href="#galleri" data-filter="dåp">
+          <article class="kortkort" data-kategori="dåp">
+            <div class="kortbilde farge-3"></div>
+            <h3>Stjerneskinn</h3>
+            <p>Dåpskort i lyseblått med handstemplet motiv.</p>
+          </article>
+        </a>
 
-        <article class="kortkort" data-kategori="jul">
-          <img class="kortbilde" src="imgs/jul.png" alt="Nordisk Julekort" />
-          <h3>Nordisk jul</h3>
-          <p>Julekort med granbar, tekstur og varme fargetoner.</p>
-        </article>
+        <a class="card-link" href="#galleri" data-filter="jul">
+          <article class="kortkort" data-kategori="jul">
+            <img class="kortbilde" src="imgs/store-bilder/jul.png" alt="Nordisk Julekort" />
+            <h3>Nordisk jul</h3>
+            <p>Julekort med granbar, tekstur og varme fargetoner.</p>
+          </article>
+        </a>
 
-        <article class="kortkort" data-kategori="bursdag">
-          <div class="kortbilde farge-5"></div>
-          <h3>Konfetti</h3>
-          <p>Lekent kort med sterke farger til store bursdager.</p>
-        </article>
+        <a class="card-link" href="#galleri" data-filter="bursdag">
+          <article class="kortkort" data-kategori="bursdag">
+            <div class="kortbilde farge-5"></div>
+            <h3>Konfetti</h3>
+            <p>Lekent kort med sterke farger til store bursdager.</p>
+          </article>
+        </a>
 
-        <article class="kortkort" data-kategori="bryllup">
-          <img class="kortbilde" src="imgs/Brylup.jpg" alt="Romantisk bryllupskort" />
-          <h3>Romantisk kveld</h3>
-          <p>Personlig bryllupskort med plass til eget navn og dato.</p>
-        </article>
+        <a class="card-link" href="#galleri" data-filter="bryllup">
+          <article class="kortkort" data-kategori="bryllup">
+            <img class="kortbilde kortbilde--liten" src="imgs/sma-bilder/Bryllup_brudepar_liten.jpg" data-large="imgs/store-bilder/Bryllup_brudepar.jpg" alt="Romantisk bryllupskort" />
+            <h3>Romantisk kveld</h3>
+            <p>Personlig bryllupskort med plass til eget navn og dato.</p>
+          </article>
+        </a>
 
-        <article class="kortkort" data-kategori="konfirmasjon">
-          <div class="kortbilde farge-2"></div>
-          <h3>Moderne konfirmasjon</h3>
-          <p>Stilig kort med moderne design og plass til personlig tekst.</p>
-        </article>
+        <a class="card-link" href="#galleri" data-filter="konfirmasjon">
+          <article class="kortkort" data-kategori="konfirmasjon">
+            <div class="kortbilde farge-2"></div>
+            <h3>Moderne konfirmasjon</h3>
+            <p>Stilig kort med moderne design og plass til personlig tekst.</p>
+          </article>
+        </a>
 
-        <article class="Valentine" data-kategori="Valentine">
-          <img class="kortbilde" src="imgs/Sløyfekort.jpg" alt="Flott sløyfekort" />
-          <h3>Flott Valentine</h3>
-          <p>Et nydelig sløyfekort som kan skrives inn og gis bort på valentine</p>
-        </article>
+        <a class="card-link" href="#galleri" data-filter="Valentine">
+          <article class="kortkort" data-kategori="Valentine">
+            <img class="kortbilde" src="imgs/store-bilder/Sløyfekort.jpg" alt="Flott sløyfekort" />
+            <h3>Flott Valentine</h3>
+            <p>Et nydelig sløyfekort som kan skrives inn og gis bort på valentine</p>
+          </article>
+        </a>
       </div>
+
+      <section class="kortdetalj" id="kortdetalj" aria-live="polite" hidden>
+        <button class="back-button" type="button" id="tilbakeTilGalleri">Tilbake til galleriet</button>
+        <div class="kortdetalj-innhold" id="kortdetaljInnhold"></div>
+      </section>
     </section>
 
     <section id="bestilling" class="container section">
