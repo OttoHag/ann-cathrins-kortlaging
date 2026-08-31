@@ -7,10 +7,20 @@ let selectedCategory = 'alle';
 
 const showCards = (selected) => {
   selectedCategory = selected;
-  cards.forEach((card) => {
+  const links = document.querySelectorAll('.card-link');
+  links.forEach((link) => {
+    const card = link.querySelector('.kortkort');
     const category = card.dataset.kategori;
-    const show = selected === 'alle' || category === selected;
-    card.closest('.card-link').style.display = show ? 'block' : 'none';
+    
+    if (selected === 'alle') {
+      // På startsiden - vis kun main-kort
+      const isMain = link.dataset.main === 'true';
+      link.style.display = isMain ? 'block' : 'none';
+    } else {
+      // I kategori - vis alle kort fra denne kategorien
+      const show = category === selected;
+      link.style.display = show ? 'block' : 'none';
+    }
   });
 };
 
@@ -61,6 +71,9 @@ backToGallery.addEventListener('click', () => {
   document.getElementById('cardGrid').hidden = false;
   document.getElementById('galleri').scrollIntoView({ behavior: 'smooth' });
 });
+
+// Initialiser galleriet med kun main-kort
+showCards('alle');
 
 const form = document.getElementById('bestillingsSkjema');
 const formStatus = document.getElementById('formStatus');
