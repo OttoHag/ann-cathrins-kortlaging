@@ -8,6 +8,8 @@ let selectedCategory = 'alle';
 const showCards = (selected) => {
   selectedCategory = selected;
   const links = document.querySelectorAll('.card-link');
+  let visibleCount = 0;
+  
   links.forEach((link) => {
     const card = link.querySelector('.kortkort');
     const category = card.dataset.kategori;
@@ -16,12 +18,16 @@ const showCards = (selected) => {
       // På startsiden - vis kun main-kort
       const isMain = link.dataset.main === 'true';
       link.style.display = isMain ? 'block' : 'none';
+      if (isMain) visibleCount++;
     } else {
       // I kategori - vis alle kort fra denne kategorien
       const show = category === selected;
       link.style.display = show ? 'block' : 'none';
+      if (show) visibleCount++;
     }
   });
+  
+  return visibleCount;
 };
 
 filterLinks.forEach((link) => {
@@ -29,7 +35,34 @@ filterLinks.forEach((link) => {
     event.preventDefault();
 
     if (selectedCategory !== link.dataset.filter) {
-      showCards(link.dataset.filter);
+      const visibleCount = showCards(link.dataset.filter);
+      
+      // Hvis bare ett kort er synlig i kategorien, åpne det direkte
+      if (visibleCount === 1) {
+        const visibleLink = document.querySelector('.card-link[style*="block"]');
+        if (visibleLink) {
+          const card = visibleLink.querySelector('.kortkort');
+          const image = card.querySelector('img');
+          const detailImage = image ? image.cloneNode() : card.querySelector('.kortbilde').cloneNode(true);
+
+          detailImage.classList.remove('kortbilde', 'kortbilde--liten');
+          detailImage.classList.add('detaljbilde');
+          if (image?.dataset.large) {
+            detailImage.src = image.dataset.large;
+          }
+
+          detailContent.replaceChildren(
+            detailImage,
+            Object.assign(document.createElement('div'), {
+              className: 'detaljtekst',
+              innerHTML: `<p class="badge">${link.dataset.filter}</p>${card.querySelector('h3').outerHTML}${card.querySelector('p').outerHTML}`
+            })
+          );
+          detail.hidden = false;
+          document.getElementById('cardGrid').hidden = true;
+          detail.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
       return;
     }
 
